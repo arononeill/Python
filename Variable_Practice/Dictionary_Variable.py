@@ -8,7 +8,7 @@ thisdict =	{
 print " Dispalys the contents of the originally declared dictionary variable\n\n"
 print(thisdict)
 
-print "\n\nIt can also be declared as :"
+print "\n\nIt can also be decrilared as :"
 
 print "thisdict = dict(apple='green', banana='yellow', cherry='red')\n\n"
 
@@ -27,3 +27,6 @@ print(thisdict)
 
 print " \n\n--- Prints the length (number of items) in the dictionary varibale ---\n"
 print(len(thisdict))
+
+print " \n\n--- Prints the value of the key below ---\n"
+print(thisdict['cherry'])
