@@ -1,0 +1,49 @@
+Tuple Vs Lists Vs Dictionary:
+
+TUPLE :-
+
+- Is immutable which means, once made, it's values cannot change
+- Is self-indexed exactly like an array list starting at index 0.
+- Are more explicit with memory
+- Declared using () brackets 
+
+example of declaration is as follows:
+thistuple = ("apple", "banana", "cherry") 
+
+LISTS :-
+
+- Extremely similar to tuples except that lists are mutable, meaning they can be changed
+- Require overhead, more memory.
+- Declared using [] brackets 
+
+example of declaration is as follows:
+list = [ 'abcd', 786 , 2.23, 'john', 70.2 ]
+
+DICTIONARY :-
+
+- Consist of key-value pairs
+- Are kind of hash table type
+- Declared using {} brackets 
+
+example of declaration is as follows:
+thisdict =	{
+  "apple": "green",
+  "banana": "yellow",
+  "cherry": "red"
+}
+
+						*** SUMMARY ***
+
+   TUPLE 		|			LISTS 			 |			DICTIONARY
+				|							 |		
+immutable  		|		   mutable			 | 		     mutable
+				|							 |		
+Less memory     |        More memory		 |			More Memory
+  needed		|			needed			 |			  needed
+				|							 |					
+    ()			|			  []			 |				{}
+    			|							 | 
+    			| 							 |		  Consist of key-
+    			|							 |			value pairs
+
+
