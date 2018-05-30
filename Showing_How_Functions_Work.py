@@ -3,7 +3,7 @@
 # Function definition is here
 def changeme( mylist ):
 	"This changes a passed list into this function"
-	mylist.append([1,2,3,4]); # Here we are maintainig the refernece, mylist, of the passed oject 
+	mylist.append(1); # Here we are maintainig the refernece, mylist, of the passed oject 
 	print "Values inside the function: ", mylist
 	return
 
@@ -18,7 +18,7 @@ def sum( arg1, arg2 ):
    # Add both the parameters and return them."
    total = arg1 + arg2; # Here total is local variable.
    print "Inside the function local total : ", total
-   return total
+   return total	
 
 # Now you can call changeme function
 mylist = [10,20,30];

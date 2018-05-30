@@ -35,15 +35,13 @@ thisdict =	{
 						*** SUMMARY ***
 
    TUPLE 		|			LISTS 			 |			DICTIONARY
-				|							 |		
-immutable  		|		   mutable			 | 		     mutable
-				|							 |		
-Less memory     |        More memory		 |			More Memory
-  needed		|			needed			 |			  needed
-				|							 |					
-    ()			|			  []			 |				{}
-    			|							 | 
-    			| 							 |		  Consist of key-
-    			|							 |			value pairs
-
-
+				    |							     |		
+immutable  	|		   mutable		 | 		    mutable
+			     	|							     |		
+Less memory |   More memory		 |			More Memory
+  needed		|			needed	     |			  needed
+				    |							     |					
+    ()			|			  []		     |				  {}
+    			  |							     | 
+    			  | 						     |		  Consist of key-
+    			  |							     |			value pairs

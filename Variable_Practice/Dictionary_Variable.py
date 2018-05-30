@@ -8,7 +8,7 @@ thisdict =	{
 print " Dispalys the contents of the originally declared dictionary variable\n\n"
 print(thisdict)
 
-print "\n\nIt can also be decrilared as :"
+print "\n\nIt can also be declared as :"
 
 print "thisdict = dict(apple='green', banana='yellow', cherry='red')\n\n"
 
