@@ -1,6 +1,17 @@
 # C Assignment 2 Converted to Python
 
 option = 0
+PinNum = 0
+pin = []
+
+def PIN(PinNum):
+	print "Enter your 4 digit PIN one digit at a time\n"
+
+	while (PinNum < 4) :
+        PinNum = PinNum + 1
+        num = input()
+    	pin.append(num)
+    print "New pin is", pin
 
 while option != 5:
 
@@ -13,9 +24,9 @@ while option != 5:
     option = input(' ')
     
     if option == 1 :
-        # call function PIN
-        # PIN (code_p, EncryptBeforeDecrypt, EncryptingTwice, EnterPinFirst);
-    	print "ggg"
+    	PIN(PinNum);
+	    # call function PIN
+	    # PIN (code_p, EncryptBeforeDecrypt, EncryptingTwice, EnterPinFirst);
         
     elif option == 2:
     	print "ggg"
