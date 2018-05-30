@@ -5,12 +5,14 @@ PinNum = 0
 pin = []
 
 def PIN(PinNum):
-	print "Enter your 4 digit PIN one digit at a time\n"
+    "Enters the user's pin"
+    print "Enter your 4 digit PIN one digit at a time\n"
 
-	while (PinNum < 4) :
+    while PinNum < 4:
         PinNum = PinNum + 1
         num = input()
-    	pin.append(num)
+        pin.append(num)
+
     print "New pin is", pin
 
 while option != 5:
