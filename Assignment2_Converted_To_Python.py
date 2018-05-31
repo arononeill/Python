@@ -1,19 +1,56 @@
 # C Assignment 2 Converted to Python
 
 option = 0
-PinNum = 0
 pin = []
 
-def PIN(PinNum):
+def PIN():
     "Enters the user's pin"
     print "Enter your 4 digit PIN one digit at a time\n"
+    PinNum = 0
 
     while PinNum < 4:
-        PinNum = PinNum + 1
+        PinNum += 1
         num = input()
         pin.append(num)
 
     print "New pin is", pin
+
+def ENCRYPT():
+    "Encrypts the user's pin"
+    # Algorithm to encrypt the user's pin
+    temp = pin[0]
+    pin[0] = pin[2]
+    pin[2] = temp
+
+    temp = pin[1]
+    pin[1] = pin[3]
+    pin[3] = temp
+
+    PinNum = 0
+    while PinNum < 4:
+        pin[PinNum] += 1
+        PinNum += 1
+
+    print "The pin you encrypted pin is ", pin
+    COMPARE();
+
+def COMPARE():
+    access_code = [4, 5, 2, 3]
+    flag = True
+    PinNum = 0
+
+    while PinNum < 4:
+        if pin[PinNum] != access_code[PinNum]:
+            flag = False
+        PinNum += 1
+
+
+    if (flag):
+        print "Pin Entered Correctly"
+
+    else:
+        print "Pin Entered Incorrectly"
+
 
 while option != 5:
 
@@ -26,29 +63,24 @@ while option != 5:
     option = input(' ')
     
     if option == 1 :
-    	PIN(PinNum);
+    	PIN();
 	    # call function PIN
-	    # PIN (code_p, EncryptBeforeDecrypt, EncryptingTwice, EnterPinFirst);
-        
+	    # PIN (code_p, EncryptBeforeDecrypt, EncryptingTwice, EnterPinFirst);   
     elif option == 2:
-    	print "ggg"
+        ENCRYPT(); 
         # call function ENCRYPT
         #ENCRYPT (code_p, correctly_entered, INcorrectly_entered, EncryptBeforeDecrypt, EncryptingTwice, EnterPinFirst);
-    
     elif option == 3 :
     	print "ggg"
 
         # call function DECRYPT
         # DECRYPT (code_p, EncryptBeforeDecrypt, EncryptingTwice, EnterPinFirst);
-    
-    if option == 4 :
+    elif option == 4 :
     	print "ggg"
 
         # call function COUNT
         # COUNT (correctly_entered, INcorrectly_entered, EnterPinFirst);
-
     else :
-    	option = 5
-    	print "ggg"
-
-    	# exit program
+        option = 5
+    	print "Thank you for using this service"
+        # exit program
