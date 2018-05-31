@@ -1,6 +1,9 @@
 # C Assignment 2 Converted to Python
 
 option = 0
+correctly_entered = 0
+Incorrectly_entered = 0
+
 pin = []
 
 def PIN():
@@ -29,6 +32,10 @@ def ENCRYPT():
     PinNum = 0
     while PinNum < 4:
         pin[PinNum] += 1
+
+        if pin[PinNum] == 10:
+            pin[PinNum] = 0
+
         PinNum += 1
 
     print "The pin you encrypted pin is ", pin
@@ -47,10 +54,37 @@ def COMPARE():
 
     if (flag):
         print "Pin Entered Correctly"
+        correctly_entered += 1
 
     else:
         print "Pin Entered Incorrectly"
+        Incorrectly_entered += 1
 
+
+def DECRYPT():
+
+    temp = pin[3]
+    pin[3] = pin[1]
+    pin[1] = temp
+
+    temp = pin[0]
+    pin[0] = pin[2]
+    pin[2] = temp
+
+    PinNum = 0
+    while PinNum < 4:
+        pin[PinNum] -= 1
+
+        if pin[PinNum] == -1:
+            pin[PinNum] = 9
+
+        PinNum += 1
+
+    print "Your newly decrypted pin is ", pin 
+
+def COUNT():
+    print "\nNumber of times entered correctly : "
+    print "\nNumber of times entered incorrectly : "
 
 while option != 5:
 
@@ -71,12 +105,12 @@ while option != 5:
         # call function ENCRYPT
         #ENCRYPT (code_p, correctly_entered, INcorrectly_entered, EncryptBeforeDecrypt, EncryptingTwice, EnterPinFirst);
     elif option == 3 :
-    	print "ggg"
+    	DECRYPT();
 
         # call function DECRYPT
         # DECRYPT (code_p, EncryptBeforeDecrypt, EncryptingTwice, EnterPinFirst);
     elif option == 4 :
-    	print "ggg"
+    	COUNT();
 
         # call function COUNT
         # COUNT (correctly_entered, INcorrectly_entered, EnterPinFirst);
