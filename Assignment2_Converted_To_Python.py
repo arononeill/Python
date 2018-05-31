@@ -2,9 +2,10 @@
 
 option = 0
 correctly_entered = 0
-Incorrectly_entered = 0
-
-pin = []
+Incorrectly_entered = 0   
+EnterPinFirst = 0  
+EncryptFirst = 0  
+pin = [0, 0, 0, 0]
 
 def PIN():
     "Enters the user's pin"
@@ -12,79 +13,109 @@ def PIN():
     PinNum = 0
 
     while PinNum < 4:
-        PinNum += 1
         num = input()
-        pin.append(num)
+
+        if num >= 0 and num < 10:
+            pin[PinNum] = num
+            PinNum += 1
+
+        else:
+            print "\nPlease Enter one digit at a time\n"
+            PinNum = 0
 
     print "New pin is", pin
+    EnterPinFirst = 1
 
-def ENCRYPT():
+    return EnterPinFirst
+
+def ENCRYPT(EnterPinFirst):
     "Encrypts the user's pin"
-    # Algorithm to encrypt the user's pin
-    temp = pin[0]
-    pin[0] = pin[2]
-    pin[2] = temp
+    if EnterPinFirst == 1:
+        # Algorithm to encrypt the user's pin
+        temp = pin[0]
+        pin[0] = pin[2]
+        pin[2] = temp
 
-    temp = pin[1]
-    pin[1] = pin[3]
-    pin[3] = temp
+        temp = pin[1]
+        pin[1] = pin[3]
+        pin[3] = temp
 
-    PinNum = 0
-    while PinNum < 4:
-        pin[PinNum] += 1
+        PinNum = 0
+        while PinNum < 4:
+            pin[PinNum] += 1
 
-        if pin[PinNum] == 10:
-            pin[PinNum] = 0
+            if pin[PinNum] == 10:
+                pin[PinNum] = 0
 
-        PinNum += 1
+            PinNum += 1
 
-    print "The pin you encrypted pin is ", pin
-    COMPARE();
+        print "The pin you encrypted pin is ", pin
+        EncryptFirst = 1
+        COMPARE();
+
+    else:
+        print "\n\t*** Please Enter a pin First ***\n"
+
+    return EncryptFirst
 
 def COMPARE():
     access_code = [4, 5, 2, 3]
     flag = True
     PinNum = 0
+    global correctly_entered
+    global Incorrectly_entered
 
     while PinNum < 4:
         if pin[PinNum] != access_code[PinNum]:
             flag = False
         PinNum += 1
 
-
     if (flag):
-        print "Pin Entered Correctly"
+        print "\nPin Entered Correctly\n"
         correctly_entered += 1
 
     else:
-        print "Pin Entered Incorrectly"
+        print "\nPin Entered Incorrectly\n"
         Incorrectly_entered += 1
 
 
-def DECRYPT():
+def DECRYPT(EnterPinFirst, EncryptFirst):
 
-    temp = pin[3]
-    pin[3] = pin[1]
-    pin[1] = temp
+    if EnterPinFirst == 1:
+        if EncryptFirst == 1:
+            temp = pin[3]
+            pin[3] = pin[1]
+            pin[1] = temp
 
-    temp = pin[0]
-    pin[0] = pin[2]
-    pin[2] = temp
+            temp = pin[0]
+            pin[0] = pin[2]
+            pin[2] = temp
 
-    PinNum = 0
-    while PinNum < 4:
-        pin[PinNum] -= 1
+            PinNum = 0
+            while PinNum < 4:
+                pin[PinNum] -= 1
 
-        if pin[PinNum] == -1:
-            pin[PinNum] = 9
+                if pin[PinNum] == -1:
+                    pin[PinNum] = 9
 
-        PinNum += 1
+                PinNum += 1
 
-    print "Your newly decrypted pin is ", pin 
+            print "Your newly decrypted pin is ", pin 
 
-def COUNT():
-    print "\nNumber of times entered correctly : "
-    print "\nNumber of times entered incorrectly : "
+        else:
+            print "\n\t***Please Encrypt your pin first ***\n"
+
+    else:
+        print "\n\t*** Please Enter a pin First ***\n"        
+
+def COUNT(EnterPinFirst):
+
+    if EnterPinFirst == 1:
+        print "\nNumber of times entered correctly : ", correctly_entered
+        print "\nNumber of times entered incorrectly : ", Incorrectly_entered
+
+    else:
+        print "\n\t*** Please Enter a pin First ***\n"  
 
 while option != 5:
 
@@ -97,20 +128,20 @@ while option != 5:
     option = input(' ')
     
     if option == 1 :
-    	PIN();
+    	EnterPinFirst = PIN();
 	    # call function PIN
 	    # PIN (code_p, EncryptBeforeDecrypt, EncryptingTwice, EnterPinFirst);   
     elif option == 2:
-        ENCRYPT(); 
+        EncryptFirst = ENCRYPT(EnterPinFirst); 
         # call function ENCRYPT
         #ENCRYPT (code_p, correctly_entered, INcorrectly_entered, EncryptBeforeDecrypt, EncryptingTwice, EnterPinFirst);
     elif option == 3 :
-    	DECRYPT();
+    	DECRYPT(EnterPinFirst, EncryptFirst);
 
         # call function DECRYPT
         # DECRYPT (code_p, EncryptBeforeDecrypt, EncryptingTwice, EnterPinFirst);
     elif option == 4 :
-    	COUNT();
+    	COUNT(EnterPinFirst);
 
         # call function COUNT
         # COUNT (correctly_entered, INcorrectly_entered, EnterPinFirst);
