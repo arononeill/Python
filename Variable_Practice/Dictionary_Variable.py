@@ -15,7 +15,7 @@ print "thisdict = dict(apple='green', banana='yellow', cherry='red')\n\n"
 
 print "Changes the colour of the key value apple to red and displays the newly chnaged contents of the thisdict variable\n\n"
 thisdict["apple"] = "red"
-print(thisdict)
+print(thisdict) 
 
 print "\n\n--- Adds an item of key damson with value purple and displays the change ---\n\n"
 thisdict["damson"] = "purple"
