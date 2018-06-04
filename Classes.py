@@ -14,7 +14,7 @@ class Employee:
       print "Name : ", self.name,  ", Salary: ", self.salary
 
 "This would create first object of Employee class"
-emp1 = Employee("Aron", 30,000) # Python adds self as an argument automatically so no need tpo call it
+emp1 = Employee("Aron", 30000) # Python adds self as an argument automatically so no need to call it
 "This would create second object of Employee class"
 emp2 = Employee("Steve", 7000)
 emp1.displayEmployee()
