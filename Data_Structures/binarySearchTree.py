@@ -3,9 +3,7 @@ class Node:
 
     def __init__(self, data):
 
-        """ Node constructor
-
-        @param data node data object """
+        # Node constructor
 
         self.left = None
         self.right = None
@@ -114,3 +112,112 @@ class Node:
                 parent.left = successor.right
             else:
                 parent.right = successor.right
+
+    def print_tree(self):
+    
+        # Print tree content inorder
+
+        if self.left:
+            self.left.print_tree()
+
+        print self.data,
+
+        if self.right:
+
+            self.right.print_tree()
+
+    def compare_trees(self, node):
+
+        """ Compare 2 trees
+        @param node tree's root node to compare to
+        @returns True if the tree passed is identical to this tree """
+
+        if node is None:
+            return False
+
+        if self.data != node.data:
+            return False
+        res = True
+
+        if self.left is None:
+
+            if node.left:
+                return False
+
+        else:
+            res = self.left.compare_trees(node.left)
+
+        if res is False:
+            return False
+
+        if self.right is None:
+
+            if node.right:
+                return False
+
+        else:
+            res = self.right.compare_trees(node.right)
+
+        return res
+
+    def tree_data(self):
+
+        # Generator to get the tree nodes data
+        # we use a stack to traverse the tree in a non-recursive way
+        stack = []
+        node = self
+        while stack or node:
+
+            if node:
+                stack.append(node)
+                node = node.left
+
+            else: # we are returning so we pop the node and we yield it
+
+                node = stack.pop()
+                yield node.data
+                node = node.right
+
+    def children_count(self):
+        
+        """ Returns the number of children
+        @returns number of children: 0, 1, 2 """
+
+        cnt = 0
+        if self.left:
+            cnt += 1
+
+        if self.right:
+            cnt += 1
+
+        return cnt
+
+root = Node(8)
+root.insert(3)
+root.insert(10)
+root.insert(1)
+root.insert(6)
+root.insert(4)
+root.insert(7)
+root.insert(14)
+root.insert(13)
+root.print_tree()
+root.delete(3)
+print "\n"
+node, parent = root.lookup(20)
+root.print_tree()
+
+root2 = Node(8)
+root2.insert(3)
+root2.insert(11)
+Compare_check = root.compare_trees(root2)
+print Compare_check
+
+root3 = Node(8)
+root3.insert(3)
+root3.insert(11)
+Compare_check = root2.compare_trees(root3)
+print Compare_check
+
+
+
