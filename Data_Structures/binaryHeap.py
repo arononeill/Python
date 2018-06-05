@@ -47,7 +47,7 @@ class MinHeap:
  
 # Driver pgoratm to test above function
 heapObj = MinHeap()
-heapObj.insertKey(3)
+heapObj.insertKey(3) 
 heapObj.insertKey(2)
 heapObj.deleteKey(1)
 heapObj.insertKey(15) 
