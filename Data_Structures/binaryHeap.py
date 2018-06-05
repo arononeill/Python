@@ -50,12 +50,12 @@ heapObj = MinHeap()
 heapObj.insertKey(3)
 heapObj.insertKey(2)
 heapObj.deleteKey(1)
-heapObj.insertKey(15)
+heapObj.insertKey(15) 
 heapObj.insertKey(5)
 heapObj.insertKey(4) 
 heapObj.insertKey(45)
  
-print heapObj.extractMin(),
+print heapObj.extlractMin(),
 print heapObj.getMin(),
 heapObj.decreaseKey(2, 1)
 print heapObj.getMin()
