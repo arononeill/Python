@@ -41,7 +41,7 @@ class MinHeap:
         self.extractMin()
  
     # Get the minimum element from the heap
-    def getMin(self):
+    def getMin(self): 
         return self.heap[0]
  
 # Driver program to test above functions
