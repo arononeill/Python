@@ -8,7 +8,7 @@ from heapq import heappush, heappop, heapify
 #             heap invarient
 # heapify - transform list into heap, in place, in linear time
  
-# A class for Min Heap
+# A class definition for MinHeap
 class MinHeap:
      
     # Constructor to initialize a heap
@@ -18,34 +18,33 @@ class MinHeap:
     def parent(self, i):
         return (i-1)/2
      
-    # Inserts a new key 'k'
-    def insertKey(self, k):
-        heappush(self.heap, k)           
+    # Inserts a new key 'Newkey'
+    def insertKey(self, Newkey):
+        heappush(self.heap, Newkey)           
  
     # Decrease value of key at index 'i' to new_val
     # It is assumed that new_val is smaller than heap[i]
-    def decreaseKey(self, i, new_val):
-        self.heap[i]  = new_val 
-        while(i != 0 and self.heap[self.parent(i)] > self.heap[i]):
-            # Swap heap[i] with heap[parent(i)]
-            self.heap[i] , self.heap[self.parent(i)] = (
-            self.heap[self.parent(i)], self.heap[i])
+    def decreaseKey(self, DeleteIndex, new_val):
+        self.heap[DeleteIndex]  = new_val 
+        while(DeleteIndex != 0 and self.heap[self.parent(DeleteIndex)] > self.heap[DeleteIndex]):
+            # Swap heap[DeleteIndex] with heap[parent(DeleteIndex)]
+            self.heap[DeleteIndex] , self.heap[self.parent(DeleteIndex)] = (
+            self.heap[self.parent(DeleteIndex)], self.heap[DeleteIndex])
              
     # Method to remove minium element from min heap
     def extractMin(self):
         return heappop(self.heap)
  
-    # This functon deletes key at index i. It first reduces
-    # value to minus infinite and then calls extractMin()
-    def deleteKey(self, i):
-        self.decreaseKey(i, float("-inf"))
+    # This functon deletes key at index DeleteIndex. It first reduces value to minus infinite and then calls extractMin()
+    def deleteKey(self, DeleteIndex):
+        self.decreaseKey(DeleteIndex, float("-inf"))
         self.extractMin()
  
     # Get the minimum element from the heap
     def getMin(self):
         return self.heap[0]
  
-# Driver pgoratm to test above function
+# Driver program to test above functions
 heapObj = MinHeap()
 heapObj.insertKey(3) 
 heapObj.insertKey(2)
@@ -55,7 +54,7 @@ heapObj.insertKey(5)
 heapObj.insertKey(4) 
 heapObj.insertKey(45)
  
-print heapObj.extlractMin(),
+print heapObj.extractMin(),
 print heapObj.getMin(),
 heapObj.decreaseKey(2, 1)
 print heapObj.getMin()
