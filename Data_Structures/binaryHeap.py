@@ -20,10 +20,10 @@ class MinHeap:
      
     # Inserts a new key 'Newkey'
     def insertKey(self, Newkey):
-        heappush(self.heap, Newkey)           
+        heappush(self.heap, Newkey) # This calls the imported heap function heappush which in turns pushes the passed element 'NewKey' into the heap          
  
-    # Decrease value of key at index 'i' to new_val
-    # It is assumed that new_val is smaller than heap[i]
+    # Decrease value of key at index 'DeleteIndex' to new_val
+    # It is assumed that new_val is smaller than heap[DeleteIndex]
     def decreaseKey(self, DeleteIndex, new_val):
         self.heap[DeleteIndex]  = new_val 
         while(DeleteIndex != 0 and self.heap[self.parent(DeleteIndex)] > self.heap[DeleteIndex]):
@@ -48,13 +48,13 @@ class MinHeap:
 heapObj = MinHeap()
 heapObj.insertKey(3) 
 heapObj.insertKey(2)
-heapObj.deleteKey(1)
+heapObj.deleteKey(1) # Deletes the value at index 1
 heapObj.insertKey(15) 
 heapObj.insertKey(5)
 heapObj.insertKey(4) 
 heapObj.insertKey(45)
- 
-print heapObj.extractMin(),
-print heapObj.getMin(),
-heapObj.decreaseKey(2, 1)
-print heapObj.getMin()
+
+print heapObj.extractMin() # Returns the minimum value of the heap and removes it
+print heapObj.getMin() # Retrieves the minimum value from the heap
+heapObj.decreaseKey(2, 1) # Changes the value at index 2 to a value of 1
+print heapObj.getMin() # Retrieves the minimum value from the heap
