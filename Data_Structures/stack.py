@@ -29,4 +29,4 @@ print(s.isEmpty()) # Checks whether stack s is empty or not, returns true
 s.push(99) # Pushes element 99 onto the stack
 print(s.pop()) # Removes the top element from the stack
 print(s.pop()) # Removes the top element from the stack
-print(s.size()) # Returns the size of stack s
+print(s.size()) # Returns the size of stack s 
