@@ -1,13 +1,33 @@
-# Stack implementation from using a LinkedList Class
-from LinkedList import LinkedList.Node
+class Stack:
+     def __init__(self):
+         self.items = []
 
-class Stack (object)
-	def __init__(self, top=None):
-			seelf.ll = LinkedList(top)
+     def isEmpty(self):
+         return self.items == []
 
-	def push(self, new_element):
-			"Push (add) a new element onto the top of the stack"
-			return self.ll.insert_first(new_element)
+     def push(self, item):
+         self.items.append(item)
 
-	def pop(self)
-		"Remove the element at the top"
+     def pop(self):
+         return self.items.pop()
+
+     def peek(self):
+         return self.items[len(self.items)-1]
+
+     def size(self):
+         return len(self.items)
+
+
+s = Stack()
+print(s.isEmpty())
+s.push(4)
+s.push('dog')
+print(s.peek())
+s.push(True)
+print(s.size())
+print(s.isEmpty())
+s.push(8.4)
+print(s.pop())
+print(s.pop())
+print(s.size())
+print s
