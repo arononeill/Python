@@ -2,45 +2,45 @@
 # First subarray is arr[LeftIndex..Midpoint]
 # Second subarray is arr[Midpoint+1..RightIndex]
 def merge(arr, LeftIndex, Midpoint, RightIndex):
-    n1 = Midpoint - LeftIndex + 1
-    n2 = RightIndex- Midpoint
+    LeftArraySize = Midpoint - LeftIndex + 1
+    RightArraySize = RightIndex- Midpoint
  
     # create temp arrays
-    L = [0] * (n1)
-    R = [0] * (n2)
+    LeftArray = [0] * (LeftArraySize)
+    RightArray = [0] * (RightArraySize)
  
-    # Copy data to temp arrays L[] and R[]
-    for i in range(0 , n1):
-        L[i] = arr[LeftIndex + i]
+    # Copy data to temp arrays LeftArray[] and RightArray[]
+    for i in range(0 , LeftArraySize):
+        LeftArray[i] = arr[LeftIndex + i]
  
-    for j in range(0 , n2):
-        R[j] = arr[Midpoint + 1 + j]
+    for j in range(0 , RightArraySize):
+        RightArray[j] = arr[Midpoint + 1 + j]
  
     # Merge the temp arrays back into arr[LeftIndex..RightIndex]
     i = 0     # Initial index of first subarray
     j = 0     # Initial index of second subarray
     k = LeftIndex     # Initial index of merged subarray
  
-    while i < n1 and j < n2 :
-        if L[i] <= R[j]:
-            arr[k] = L[i]
+    while i < LeftArraySize and j < RightArraySize :
+        if LeftArray[i] <= RightArray[j]:
+            arr[k] = LeftArray[i]
             i += 1
         else:
-            arr[k] = R[j]
+            arr[k] = RightArray[j]
             j += 1
         k += 1
  
-    # Copy the remaining elements of L[], if there
+    # Copy the remaining elements of LeftArray[], if there
     # are any 
-    while i < n1:
-        arr[k] = L[i]
+    while i < LeftArraySize:
+        arr[k] = LeftArray[i]
         i += 1
         k += 1
  
-    # Copy the remaining elements of R[], if there
+    # Copy the remaining elements of RightArray[], if there
     # are any
-    while j < n2:
-        arr[k] = R[j]
+    while j < RightArraySize:
+        arr[k] = RightArray[j]
         j += 1
         k += 1
  
@@ -53,8 +53,9 @@ def mergeSort(arr,LeftIndex,RightIndex):
         Midpoint = (LeftIndex+(RightIndex-1))/2
  
         # Sort first and second halves
-        mergeSort(arr, LeftIndex, Midpoint)
-        mergeSort(arr, Midpoint+1, RightIndex)
+        mergeSort(arr, LeftIndex, Midpoint) # This calls the first half of the array and splits it up in order to be sorted
+        mergeSort(arr, Midpoint+1, RightIndex) # This calls the second half of the array and splits it up in order to be sorted
+
         merge(arr, LeftIndex, Midpoint, RightIndex)
 
 
