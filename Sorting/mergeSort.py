@@ -1,9 +1,9 @@
 # Merges two subarrays of arr[].
-# First subarray is arr[l..m]
-# Second subarray is arr[m+1..r]
-def merge(arr, l, m, r):
-    n1 = m - l + 1
-    n2 = r- m
+# First subarray is arr[LeftIndex..Midpoint]
+# Second subarray is arr[Midpoint+1..RightIndex]
+def merge(arr, LeftIndex, Midpoint, RightIndex):
+    n1 = Midpoint - LeftIndex + 1
+    n2 = RightIndex- Midpoint
  
     # create temp arrays
     L = [0] * (n1)
@@ -11,15 +11,15 @@ def merge(arr, l, m, r):
  
     # Copy data to temp arrays L[] and R[]
     for i in range(0 , n1):
-        L[i] = arr[l + i]
+        L[i] = arr[LeftIndex + i]
  
     for j in range(0 , n2):
-        R[j] = arr[m + 1 + j]
+        R[j] = arr[Midpoint + 1 + j]
  
-    # Merge the temp arrays back into arr[l..r]
+    # Merge the temp arrays back into arr[LeftIndex..RightIndex]
     i = 0     # Initial index of first subarray
     j = 0     # Initial index of second subarray
-    k = l     # Initial index of merged subarray
+    k = LeftIndex     # Initial index of merged subarray
  
     while i < n1 and j < n2 :
         if L[i] <= R[j]:
@@ -44,28 +44,28 @@ def merge(arr, l, m, r):
         j += 1
         k += 1
  
-# l is for left index and r is right index of the
+# LeftIndex is for left index and RightIndex is right index of the
 # sub-array of arr to be sorted
-def mergeSort(arr,l,r):
-    if l < r:
+def mergeSort(arr,LeftIndex,RightIndex):
+    if LeftIndex < RightIndex:
  
-        # Same as (l+r)/2, but avoids overflow for
-        # large l and h
-        m = (l+(r-1))/2
+        # Adds the first number's index to the last number's index in the array and then halves it
+        Midpoint = (LeftIndex+(RightIndex-1))/2
  
         # Sort first and second halves
-        mergeSort(arr, l, m)
-        mergeSort(arr, m+1, r)
-        merge(arr, l, m, r)
+        mergeSort(arr, LeftIndex, Midpoint)
+        mergeSort(arr, Midpoint+1, RightIndex)
+        merge(arr, LeftIndex, Midpoint, RightIndex)
+
 
 # Driver code to test above
 arr = [12, 11, 13, 5, 6, 7]
-n = len(arr)
+ArrLength = len(arr)
 print ("Given array is")
-for i in range(n):
+for i in range(ArrLength):
     print ("%d" %arr[i]), 
  
-mergeSort(arr,0,n-1)
+mergeSort(arr,0,ArrLength-1)
 print ("\n\nSorted array is")
-for i in range(n):
+for i in range(ArrLength):
     print ("%d" %arr[i]),
