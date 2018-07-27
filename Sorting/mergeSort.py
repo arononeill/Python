@@ -21,8 +21,8 @@ def merge(arr, LeftIndex, Midpoint, RightIndex):
     RightArrayIndex = 0     # Initial index of second subarray
     MergedArrIndex = LeftIndex     # Initial index of merged subarray
  
-    while LeftArrayIndex < LeftArraySize and RightArrayIndex < RightArraySize : ****************************
-        if LeftArray[LeftArrayIndex] <= RightArray[RightArrayIndex]:
+    while LeftArrayIndex < LeftArraySize and RightArrayIndex < RightArraySize : # Checks to clarify if all indexes have been visited or not
+        if LeftArray[LeftArrayIndex] <= RightArray[RightArrayIndex]: ###########################################
             arr[MergedArrIndex] = LeftArray[LeftArrayIndex]
             LeftArrayIndex += 1
         else:
@@ -33,7 +33,7 @@ def merge(arr, LeftIndex, Midpoint, RightIndex):
     # Copy the remaining elements of LeftArray[], if there
     # are any 
     while LeftArrayIndex < LeftArraySize:
-        arr[MergedArrIndex] = LeftArray[LeftArrayIndex]
+        arr[MergedArrIndex] = LeftArray[LeftArrayIndex]                   ###################### COmments to add in here
         LeftArrayIndex += 1
         MergedArrIndex += 1
  
@@ -42,7 +42,7 @@ def merge(arr, LeftIndex, Midpoint, RightIndex):
     while RightArrayIndex < RightArraySize:
         arr[MergedArrIndex] = RightArray[RightArrayIndex]
         RightArrayIndex += 1
-        MergedArrIndex += 1                               **************************************
+        MergedArrIndex += 1 ######################################################
  
 # LeftIndex is for left index and RightIndex is right index of the
 # sub-array of arr to be sorted
