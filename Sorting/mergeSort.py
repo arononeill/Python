@@ -5,44 +5,44 @@ def merge(arr, LeftIndex, Midpoint, RightIndex):
     LeftArraySize = Midpoint - LeftIndex + 1
     RightArraySize = RightIndex- Midpoint
  
-    # create temp arrays
+    # create temp arrays of sizes LeftArraySize and RightArraySize
     LeftArray = [0] * (LeftArraySize)
     RightArray = [0] * (RightArraySize)
  
     # Copy data to temp arrays LeftArray[] and RightArray[]
-    for i in range(0 , LeftArraySize):
-        LeftArray[i] = arr[LeftIndex + i]
+    for LeftArrayIndex in range(0 , LeftArraySize):
+        LeftArray[LeftArrayIndex] = arr[LeftIndex + LeftArrayIndex]
  
-    for j in range(0 , RightArraySize):
-        RightArray[j] = arr[Midpoint + 1 + j]
+    for RightArrayIndex in range(0 , RightArraySize):
+        RightArray[RightArrayIndex] = arr[Midpoint + 1 + RightArrayIndex]
  
     # Merge the temp arrays back into arr[LeftIndex..RightIndex]
-    i = 0     # Initial index of first subarray
-    j = 0     # Initial index of second subarray
-    k = LeftIndex     # Initial index of merged subarray
+    LeftArrayIndex = 0     # Initial index of first subarray
+    RightArrayIndex = 0     # Initial index of second subarray
+    MergedArrIndex = LeftIndex     # Initial index of merged subarray
  
-    while i < LeftArraySize and j < RightArraySize :
-        if LeftArray[i] <= RightArray[j]:
-            arr[k] = LeftArray[i]
-            i += 1
+    while LeftArrayIndex < LeftArraySize and RightArrayIndex < RightArraySize : ****************************
+        if LeftArray[LeftArrayIndex] <= RightArray[RightArrayIndex]:
+            arr[MergedArrIndex] = LeftArray[LeftArrayIndex]
+            LeftArrayIndex += 1
         else:
-            arr[k] = RightArray[j]
-            j += 1
-        k += 1
+            arr[MergedArrIndex] = RightArray[RightArrayIndex]
+            RightArrayIndex += 1
+        MergedArrIndex += 1
  
     # Copy the remaining elements of LeftArray[], if there
     # are any 
-    while i < LeftArraySize:
-        arr[k] = LeftArray[i]
-        i += 1
-        k += 1
+    while LeftArrayIndex < LeftArraySize:
+        arr[MergedArrIndex] = LeftArray[LeftArrayIndex]
+        LeftArrayIndex += 1
+        MergedArrIndex += 1
  
     # Copy the remaining elements of RightArray[], if there
     # are any
-    while j < RightArraySize:
-        arr[k] = RightArray[j]
-        j += 1
-        k += 1
+    while RightArrayIndex < RightArraySize:
+        arr[MergedArrIndex] = RightArray[RightArrayIndex]
+        RightArrayIndex += 1
+        MergedArrIndex += 1                               **************************************
  
 # LeftIndex is for left index and RightIndex is right index of the
 # sub-array of arr to be sorted
@@ -63,10 +63,10 @@ def mergeSort(arr,LeftIndex,RightIndex):
 arr = [12, 11, 13, 5, 6, 7]
 ArrLength = len(arr)
 print ("Given array is")
-for i in range(ArrLength):
-    print ("%d" %arr[i]), 
+for LeftArrayIndex in range(ArrLength):
+    print ("%d" %arr[LeftArrayIndex]), 
  
 mergeSort(arr,0,ArrLength-1)
 print ("\n\nSorted array is")
-for i in range(ArrLength):
-    print ("%d" %arr[i]),
+for LeftArrayIndex in range(ArrLength):
+    print ("%d" %arr[LeftArrayIndex]),
