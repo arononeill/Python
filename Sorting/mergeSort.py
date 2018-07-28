@@ -59,7 +59,7 @@ def mergeSort(arr,LeftIndex,RightIndex):
 
 
 # Driver code to test above
-arr = [12, 11, 13, 5, 6, 7]
+arr = [12, 11, 13, 50, 5, 25]
 ArrLength = len(arr)
 print ("Given array is")
 for LeftArrayIndex in range(ArrLength):
