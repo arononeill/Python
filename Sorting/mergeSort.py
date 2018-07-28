@@ -22,27 +22,26 @@ def merge(arr, LeftIndex, Midpoint, RightIndex):
     MergedArrIndex = LeftIndex     # Initial index of merged subarray
  
     while LeftArrayIndex < LeftArraySize and RightArrayIndex < RightArraySize : # Checks to clarify if all indexes have been visited or not
-        if LeftArray[LeftArrayIndex] <= RightArray[RightArrayIndex]: ###########################################
-            arr[MergedArrIndex] = LeftArray[LeftArrayIndex]
-            LeftArrayIndex += 1
-        else:
-            arr[MergedArrIndex] = RightArray[RightArrayIndex]
-            RightArrayIndex += 1
-        MergedArrIndex += 1
+        if LeftArray[LeftArrayIndex] <= RightArray[RightArrayIndex]: # this checks which number is smaller between the LeftArray number and RightArray number
+            arr[MergedArrIndex] = LeftArray[LeftArrayIndex] # The number checked in the LeftArray is then added to the array, controlled by the MergedArrIndex
+            LeftArrayIndex += 1 # LeftArray's Index is the incremented by 1 to the check the next number
+
+        else: # If the number in the RightArray is smaller then 
+            arr[MergedArrIndex] = RightArray[RightArrayIndex] #  # The number checked in the RightArray is then added to the array, controlled by the MergedArrIndex
+            RightArrayIndex += 1 # RightArray's Index is the incremented by 1 to the check the next number
+        MergedArrIndex += 1 # After the number is added to the arr from either left or right array, the MergedArrIndex is incremented by 1 in order to move to the next place
  
-    # Copy the remaining elements of LeftArray[], if there
-    # are any 
+    # Copy the remaining elements of LeftArray[], if there are any
     while LeftArrayIndex < LeftArraySize:
-        arr[MergedArrIndex] = LeftArray[LeftArrayIndex]                   ###################### COmments to add in here
+        arr[MergedArrIndex] = LeftArray[LeftArrayIndex]
         LeftArrayIndex += 1
         MergedArrIndex += 1
  
-    # Copy the remaining elements of RightArray[], if there
-    # are any
+    # Copy the remaining elements of RightArray[], if there are any
     while RightArrayIndex < RightArraySize:
         arr[MergedArrIndex] = RightArray[RightArrayIndex]
         RightArrayIndex += 1
-        MergedArrIndex += 1 ######################################################
+        MergedArrIndex += 1 
  
 # LeftIndex is for left index and RightIndex is right index of the
 # sub-array of arr to be sorted
