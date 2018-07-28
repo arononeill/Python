@@ -27,7 +27,7 @@ def merge(arr, LeftIndex, Midpoint, RightIndex):
             LeftArrayIndex += 1 # LeftArray's Index is the incremented by 1 to the check the next number
 
         else: # If the number in the RightArray is smaller then 
-            arr[MergedArrIndex] = RightArray[RightArrayIndex] #  # The number checked in the RightArray is then added to the array, controlled by the MergedArrIndex
+            arr[MergedArrIndex] = RightArray[RightArrayIndex] # The number checked in the RightArray is then added to the array, controlled by the MergedArrIndex
             RightArrayIndex += 1 # RightArray's Index is the incremented by 1 to the check the next number
         MergedArrIndex += 1 # After the number is added to the arr from either left or right array, the MergedArrIndex is incremented by 1 in order to move to the next place
  
