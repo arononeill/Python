@@ -34,7 +34,7 @@ def merge(arr, LeftIndex, Midpoint, RightIndex):
     # Copy the remaining elements of LeftArray[], if there are any
     while LeftArrayIndex < LeftArraySize:
         arr[MergedArrIndex] = LeftArray[LeftArrayIndex]
-        LeftArrayIndex += 1
+        LeftArrayIndex += 1 
         MergedArrIndex += 1
  
     # Copy the remaining elements of RightArray[], if there are any
