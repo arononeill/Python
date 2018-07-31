@@ -10,6 +10,6 @@ def selectionSort(list):
        list[GreatestPosition] = temp
 
 list = [54,26,93,17,77,31,44,55,20]
-length = len(list) 
+length = len(list)    
 selectionSort(list)
 print(list) 
