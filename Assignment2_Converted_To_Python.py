@@ -11,7 +11,7 @@ pin = [0, 0, 0, 0]
 
 def PIN():
     "Enters the user's pin"
-    print "Enter your 4 digit PIN one digit at a time\n"
+    print ("Enter your 4 digit PIN one digit at a time\n")
     PinNum = 0
     EncryptTwice = 0
     DecryptTwice = 0
@@ -24,10 +24,10 @@ def PIN():
             PinNum += 1
 
         else:
-            print "\nPlease Enter one digit at a time\n"
+            print ("\nPlease Enter one digit at a time\n")
             PinNum = 0
 
-    print "New pin is", pin
+    print ("New pin is", pin)
     EnterPinFirst = 1
 
     return EnterPinFirst
@@ -56,16 +56,16 @@ def ENCRYPT(EnterPinFirst):
 
                 PinNum += 1
 
-            print "The pin you encrypted pin is ", pin
+            print ("The pin you encrypted pin is ", pin)
             EncryptFirst = 1
             EncryptTwice = 1
             COMPARE();
 
         else:
-            print "\n\t*** Sorry you cannot encrypt the same pin twice ***\n"
+            print ("\n\t*** Sorry you cannot encrypt the same pin twice ***\n")
 
     else:
-        print "\n\t*** Please Enter a pin First ***\n"
+        print ("\n\t*** Please Enter a pin First ***\n")
 
     return EncryptFirst
 
@@ -82,11 +82,11 @@ def COMPARE():
         PinNum += 1
 
     if (flag):
-        print "\nPin Entered Correctly\n"
+        print ("\nPin Entered Correctly\n")
         correctly_entered += 1
 
     else:
-        print "\nPin Entered Incorrectly\n"
+        print ("\nPin Entered Incorrectly\n")
         Incorrectly_entered += 1
 
 
@@ -113,35 +113,35 @@ def DECRYPT(EnterPinFirst, EncryptFirst):
 
                     PinNum += 1
 
-                print "Your newly decrypted pin is ", pin 
+                print ("Your newly decrypted pin is ", pin)
                 DecryptTwice = 1
 
             else:
-                print "\n\t*** Sorry you cannot decrypt the same pin twice ***\n"
+                print ("\n\t*** Sorry you cannot decrypt the same pin twice ***\n")
 
         else:
-            print "\n\t***Please Encrypt your pin first ***\n"
+            print ("\n\t***Please Encrypt your pin first ***\n")
 
     else:
-        print "\n\t*** Please Enter a pin First ***\n"        
+        print ("\n\t*** Please Enter a pin First ***\n")        
 
 def COUNT(EnterPinFirst):
 
     if EnterPinFirst == 1:
-        print "\nNumber of times entered correctly : ", correctly_entered
-        print "\nNumber of times entered incorrectly : ", Incorrectly_entered
+        print ("\nNumber of times entered correctly : ", correctly_entered)
+        print ("\nNumber of times entered incorrectly : ", Incorrectly_entered)
 
     else:
-        print "\n\t*** Please Enter a pin First ***\n"  
+        print ("\n\t*** Please Enter a pin First ***\n")  
 
 while option != 5:
 
-    print "Please select any one of the following:\n\n"
-    print "1. Enter code\n"
-    print "2. Encrypt code and verify if correct\n"
-    print "3. Decrypt code\n"
-    print "4. Display the number of times the code was entered (i) Successfully (ii) Incorrectly\n"
-    print "5. Exit Program\n"
+    print ("Please select any one of the following:\n\n")
+    print ("1. Enter code\n")
+    print ("2. Encrypt code and verify if correct\n")
+    print ("3. Decrypt code\n")
+    print ("4. Display the number of times the code was entered (i) Successfully (ii) Incorrectly\n")
+    print ("5. Exit Program\n")
     option = input(' ')
     
     if option == 1 :
@@ -163,6 +163,5 @@ while option != 5:
         # call function COUNT
         # COUNT (correctly_entered, INcorrectly_entered, EnterPinFirst);
     else :
-        option = 5
-    	print "Thank you for using this service"
+    	print ("Thank you for using this service")
         # exit program
